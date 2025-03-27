@@ -1,69 +1,42 @@
+import java.util.Date;
+
 public class Order {
-    int id;
-    Customer customer;
-    Product[] products;
-    int[] quantityies;
-    String orderDate;
-    String status;
+    private int id;
+    private Customer customer;
+    private Product[] products;
+    private int[] quantities;
+    private Date date;
+    private String status;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public Order(int id, Customer customer, Product[] products, int[] quantities, Date date, String status) {
         this.id = id;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Product[] getProducts() {
-        return products;
-    }
-
-    public void setProducts(Product[] products) {
-        this.products = products;
-    }
-
-    public int[] getQuantityies() {
-        return quantityies;
-    }
-
-    public void setQuantityies(int[] quantityies) {
-        this.quantityies = quantityies;
-    }
-
-    public String getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(String orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+//        this.customer = customer;
+//        this.products = products;
+        this.quantities = quantities;
+        this.date = date;
         this.status = status;
     }
-    public void calculateTotalValue(int id){
-        this.id=id;
-        this.products=new Product[this.quantityies.length];
-        double totalValue=0;
 
-        for(int i=0;i<quantityies.length;i++){
-            if(quantityies[i]>0){
-                totalValue=totalValue+quantityies[i];
-            }
+    public double calculateTotalValue() {
+        double total = 0;
+        for (int i = 0; i < products.length; i++) {
+            total += products[i].getPrice() * quantities[i];
         }
-        System.out.println("Total value:" + totalValue(););
+        return total;
     }
 
+    public void applyDiscount() {
+        if (customer.isLoyalCustomer()) {
+            System.out.println("Applying 10% discount...");
+            System.out.println("Total Price after Discount: " + (calculateTotalValue() * 0.9));
+        }
+    }
+    public void displayDetails() {
+        System.out.println("Order ID: " + id + ", Date: " + date + ", Status: " + status);
+        System.out.println("Customer: " + customer.getId());
+        for (int i = 0; i < products.length; i++) {
+            System.out.println(products[i].getName() + " x " + quantities[i]);
+        }
+        System.out.println("Total Price: " + calculateTotalValue());
+    }
 }
