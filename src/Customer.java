@@ -53,4 +53,8 @@ public class Customer {
         this.isLoyalCustomer = isLoyalCustomer;
         System.out.println("ID: " + id + " First Name: " + firstName + " Last Name: " + lastName + " Email: " + email + " Is Loyal Customer: " + isLoyalCustomer);
     }
+
+    public void setIsLoyalCustomer(boolean b) {
+        isLoyalCustomer = b;
+    }
 }

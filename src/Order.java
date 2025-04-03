@@ -39,4 +39,8 @@ public class Order {
         }
         System.out.println("Total Price: " + calculateTotalValue());
     }
+
+    public int getId() {
+        return id;
+    }
 }

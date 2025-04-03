@@ -46,7 +46,8 @@ public class Main {
         order1.applyDiscount();
         store.updateStockAfter0rder(order1);
 
-        System.out println("Order details:");
+
+        System.out.println("Order details");
         order1.displayDetails();
         System.out.println("\nStock levels after the order:");
         store.displayProductsInCategory ("Laptop");
