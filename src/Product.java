@@ -45,7 +45,7 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
-    public void displayInfo(int id, String name, String category, double price, int stockQuantity){
+    public void displayInfo(){
         this.id=id;
         this.name=name;
         this.category=category;

@@ -1,17 +1,17 @@
 import java.util.Date;
 
 public class Order {
-    private int id;
-    private Customer customer;
-    private Product[] products;
-    private int[] quantities;
+    int id;
+    Customer customer;
+    Product[] products;
+    int[] quantities;
     private Date date;
-    private String status;
+    String status;
 
     public Order(int id, Customer customer, Product[] products, int[] quantities, Date date, String status) {
         this.id = id;
-//        this.customer = customer;
-//        this.products = products;
+       this.customer = customer;
+        this.products = products;
         this.quantities = quantities;
         this.date = date;
         this.status = status;

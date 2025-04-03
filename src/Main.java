@@ -30,29 +30,39 @@ public class Main {
         Customer customer1 = new Customer ();
         customer1.setId(1);
         customer1. setFirstName ("'John"); customer1. setLastName("Smith"); customer1. setEmail("'john.smith@example.com");
-        customer1.setIsLovalCustomer(true):
-        Customer customer2 = new Customer ():
-        customer2. setId(2);
+        customer1.setIsLoyalCustomer(true);
+        Customer customer2 = new Customer ();
+        customer2.setId(2);
         customer2.setFirstName("Anna");
-        customer2. setLastName ("'Brown"); customer2. setEmail ("anna.brown@example.com"); customer2. setIsLoyalCustomer (false);
-        store. addCustomer (customer1); store. addCustomer (customer2) ;
+        customer2.setLastName ("'Brown");
+        customer2.setEmail ("anna.brown@example.com");
+        customer2.setIsLoyalCustomer (false);
+        store.addCustomer (customer1);
+        store.addCustomer (customer2);
 
-        Product [1 orderProducts1 = {producti, product2};
+        Product [] orderProducts1 = {product1, product2};
         int [] orderQuantities1 = {1, 1};
-        Order orderl = store.createOrder (customer1, orderProducts1, orderQuantities1);
-        order1.applyDiscount(); // Apply discount for a loyal customer store.updateStockAfter0rder(order1);
+        Order order1 = store.createOrder (customer1, orderProducts1, orderQuantities1);
+        order1.applyDiscount();
+        store.updateStockAfter0rder(order1);
 
-        System.out println("Order details:"); order1.displayDetails();
-        System.out.println("\nStock levels after the order:"); store.displayProductsInCategory ("Laptop"); store.displayProductsInCategory("Mouse");
+        System.out println("Order details:");
+        order1.displayDetails();
+        System.out.println("\nStock levels after the order:");
+        store.displayProductsInCategory ("Laptop");
+        store.displayProductsInCategory("Mouse");
 
-        store. "Completed") "Completed");
-        System.out.println("\n0rder status after update:"); order1.displayDetails();
+        store.changeOrderStatus(order1.getId(), "Completed");
+        System.out.println("\n0rder status after update:");
+        order1.displayDetails();
 
-        Product [] orderProducts2 = {product, product2};
-        intil orderQuantities2 = {2, 1};
+        Product [] orderProducts2 = {product3, product2};
+        int[] orderQuantities2 = {2, 1};
+
         Order order2 = store. createOrder(customer2, orderProducts2, orderQuantities2);
         store.updateStockAfter0rder(order2);
 
-        System.out.println("\nOrders of John Smith:"); store.displayCustomerOrders(1);
+        System.out.println("\nOrders of John Smith:");
+        store.displayCustomerOrders(1);
     }
 }
